@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,900');
+
+$pricol: #010511;
+$seccol: #0c121c;
+$tricol: #000022;
+$light: #011b33;
+$dark: #08080a;
+$font: #ffe;
+$highlight: #fff241;
+
+:root {
+  --pricol: #{$pricol};
+  --seccol: #{$seccol};
+  --tricol: #{$tricol};
+  --light: #{$light};
+  --dark: #{$dark};
+  --font: #{$font};
+  --highlight: #{$highlight};
+
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: 'Ubuntu', sans-serif;
+  color: $font;
+  text-decoration: none;
+  vertical-align: baseline;
+  user-select: none;
+}
+
+
+#header-logo {
+  display: flex;
+  align-self: center;
+  flex-direction: row;
+  width: fit-content;
+  align-items: center;
+
+  p {
+    padding-left: 5px;
+  }
+}
+
+.logo {
+  height: 2rem;
+  aspect-ratio: 1/1;
+  background: $light;
+  border: $font 2px solid;
+}
+
+.padding {
+  padding-top: 1rem;
+}
+
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/////////
+
+
+#wrapper {
+  color: $font;
+  background: linear-gradient(to top, var(--pricol) 15%, var(--seccol) 70%, var(--light));
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  background: $dark;
+  padding: 1rem 2rem;
+  z-index: 50;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+}
+
+
+nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+nav>button {
+  background: transparent;
+  color: $font;
+  transition: .5s ease all;
+  box-shadow: none;
+
+  &:hover {
+    box-shadow: 0 2px 0 $font;
+  }
+
+  &:active {
+    box-shadow: 0 2px 0 $font;
+    background: $font;
+    color: $dark;
+  }
+}
+
+
+:not(nav)>button {
+  border-radius: .65rem;
+  padding: .5rem;
+  font-size: .9rem;
+  background: $font;
+  color: $dark;
+  border: none;
+  outline: none;
+  height: 1.5rem;
+  display: grid;
+  place-content: center;
+  transition: .1s ease all;
+
+  &:hover:not(nav) {
+    transform: scale(105%);
+    outline: #42c2de 2px solid;
+  }
+
+  &:active:not(nav) {
+    transform: scale(102%);
+
+  }
+}
+
+#header-share {
+  display: flex;
+  gap: .5rem;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+
+main {
+  height: 100%;
+  width: 100vw;
+  text-align: center;
+  font-size: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.blob-wrapper {
+  width: 100vmax;
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  filter: blur(50px);
+  opacity: .25;
+}
+
+.blob {
+  display: inline-block;
+  position: absolute;
+  z-index: 20;
+  animation: rotate 10s linear infinite;
+}
+
+
+@keyframes rotate {
+  0% {
+    -ms-transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    -ms-transform: translateY(100px);
+  }
+
+  100% {
+    -ms-transform: translateY(00px) rotate(360deg);
+    transform: translateY(0px) rotate(360deg);
+  }
+}
+
+.blob.one {
+  height: 400px;
+  width: 400px;
+  top: 20%;
+  left: -5%;
+  border-radius: 25%/20% 50%;
+  background: rgba(40, 56, 162, 0.441);
+  z-index: -2;
+  animation-delay: 2s;
+}
+
+.blob.two {
+  height: 650px;
+  width: 650px;
+  top: 0;
+  left: 15%;
+  border-radius: 65%/40% 70%;
+  background: rgba(48, 122, 170, 0.644);
+  z-index: -3;
+  opacity: .75;
+  animation-delay: -1s;
+}
+
+.blob.three {
+  height: 400px;
+  width: 400px;
+  top: 20%;
+  left: 50%;
+  border-radius: 60%/40% 20%;
+  background: rgba(39, 84, 198, 0.644);
+  z-index: -3;
+  animation-delay: 1.25s;
+}
+
+.blob.four {
+  height: 500px;
+  width: 500px;
+  top: 20%;
+  left: 30%;
+  border-radius: 60%/40% 20%;
+  background: $tricol;
+  opacity: .25;
+  z-index: -4;
+  animation-delay: -3s;
+}
+
+.blob.five {
+  height: 500px;
+  width: 500px;
+  top: 10%;
+  left: 70%;
+  border-radius: 60%/40% 20%;
+  background: rgba(14, 127, 183, 0.361);
+  z-index: -5;
+  animation-delay: 1s;
+}
+
+.blob.six {
+  height: 90px;
+  width: 90px;
+  top: 70%;
+  left: 80%;
+  border-radius: 25px/25% 15%;
+  background: rgba(48, 122, 170, 0.644);
+  z-index: -6;
+}
+
+.content-wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  z-index: 25;
+}
+
+
+#square-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  z-index: 25;
+}
+
+#square {
+  position: relative;
+  width: 10rem;
+  aspect-ratio: 1/1;
+  display: grid;
+  place-items: center;
+  z-index: 20;
+  border-width: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to top, darkblue, darkorchid) 1;
+  overflow: hidden;
+  box-shadow: 0 0 10px 1px hsla(60, 85%, 49%, 0.288) inset;
+
+  .square-number {
+    font-size: 4rem;
+    color: $font;
+  }
+
+  .square-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(closest-corner, transparent 50%, $highlight);
+    opacity: .15;
+    animation: radial-in 4s alternate infinite;
+  }
+}
+
+@keyframes radial-in {
+  0% {
+    transform: scale(400%);
+  }
+
+  100% {
+    transform: scale(100%);
+  }
+
+}
+
+
+
+
+
+footer {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  z-index: 50;
+  height: auto;
+  background: transparent;
+
+  :last-child {
+    text-align: right;
+  }
+}
+
+
+// Animations
+
+.fade-out {
+  opacity: 0;
+}
